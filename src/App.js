@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { ProductProvider } from './ProductContext'
+import ProductForm from './components/ProductForm'
+import ProductList from './components/ProductList'
+import Cart from './components/Cart'
+import './App.css'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ProductProvider>
+      <div className='app'>
+        <header className='app-header'>
+          <h1>Product Management System</h1>
+        </header>
+        <main className='app-main'>
+          <div className='product-section'>
+            <ProductForm />
+            <ProductList />
+          </div>
+          <Cart />
+        </main>
+      </div>
+    </ProductProvider>
+  )
 }
 
-export default App;
+export default App
